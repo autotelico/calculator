@@ -86,7 +86,7 @@ function operate(a, b, operator) {
                 result.textContent += 6;
                 break;
             case 'x':
-                result.textContent += '*';
+                result.textContent += 'x';
                 break;
             case '7':
                 result.textContent += 7;
