@@ -45,8 +45,9 @@ function operate() {
         }
     }
     
+
         if (operator === '+') {
-            return output = add(output, firstNumber);
+            output = add(output, firstNumber);
         }
         if (operator === '-') {
             output = subtract(output, firstNumber);
