@@ -3,23 +3,23 @@ document.addEventListener("DOMContentLoaded", () => {
 let firstNumber;
 let secondNumber;
 let operator = '';
-let output = undefined;
+let output;
 
 // math functions
-function add() {
-    return firstNumber + secondNumber;
+function add(a, b) {
+    return a + b;
 }
 
-function subtract() {
-    return firstNumber - secondNumber;
+function subtract(a, b) {
+    return a - b;
 }
 
-function multiply() {
-    return firstNumber * secondNumber;
+function multiply(a, b) {
+    return a * b;
 }
 
-function divide() {
-    return  firstNumber / secondNumber;
+function divide(a, b) {
+    return  a / b;
 }
 
 
@@ -27,9 +27,9 @@ let test = add(10, 2, 2, 5)
 console.log(test);
 
 
-// Will make this into an event listener for when the user hits '='
+// An event listener for when the user hits '='
 function operate() {
-    if (typeof output === 'undefined') {
+    if (typeof output !== 'number') {
 
         if (operator === '+') {
             return add(firstNumber, secondNumber);
@@ -47,16 +47,16 @@ function operate() {
     
 
         if (operator === '+') {
-            output = add(output, firstNumber);
+            return output = add(output, firstNumber);
         }
         if (operator === '-') {
-            output = subtract(output, firstNumber);
+            return output = subtract(output, firstNumber);
         }
         if (operator === '*') {
-            output = multiply(output, firstNumber);
+            return output = multiply(output, firstNumber);
         }
         if (operator === '/') {
-            output = divide(output, firstNumber);
+            return output = divide(output, firstNumber);
         }
 }
 
