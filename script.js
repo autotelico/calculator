@@ -19,7 +19,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return  a / b;
+    return a / b;
 }
 
 
@@ -29,34 +29,17 @@ console.log(test);
 
 // An event listener for when the user hits '='
 function operate() {
-    if (typeof output !== 'number') {
-
         if (operator === '+') {
-            return add(firstNumber, secondNumber);
+            return add(output, firstNumber);
         }
         if (operator === '-') {
-            return subtract(firstNumber, secondNumber);
+            return subtract(output, firstNumber);
         }
         if (operator === '*') {
-            return multiply(firstNumber, secondNumber);
+            return multiply(output, firstNumber);
         }
         if (operator === '/') {
-            return divide(firstNumber, secondNumber);
-        }
-    }
-    
-
-        if (operator === '+') {
-            return output = add(output, firstNumber);
-        }
-        if (operator === '-') {
-            return output = subtract(output, firstNumber);
-        }
-        if (operator === '*') {
-            return output = multiply(output, firstNumber);
-        }
-        if (operator === '/') {
-            return output = divide(output, firstNumber);
+            return divide(output, firstNumber);
         }
 }
 
@@ -75,6 +58,11 @@ function clearCalculator() {
     numpad.addEventListener('click', (e) => { // for display only
         let pressedKey = e.target;
 
+        if (typeof output === 'number' && typeof firstNumber === 'number') {
+            output = operate();
+            firstNumber = null;
+        }
+
         switch(pressedKey.textContent) {
 
             case '(':
@@ -91,26 +79,26 @@ function clearCalculator() {
                 break;
             case '1':
                 result.textContent += 1;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 1;
+                if (typeof output !== 'number') {
+                    output = 1;
                 } else {
-                    secondNumber = 1;
+                    firstNumber = 1;
                 }
                 break;
             case '2':
                 result.textContent += 2;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 2;
+                if (typeof output !== 'number') {
+                    output = 2;
                 } else {
-                    secondNumber = 2;
+                    firstNumber = 2;
                 }
                 break;
             case '3':
                 result.textContent += 3;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 3;
+                if (typeof output !== 'number') {
+                    output = 3;
                 } else {
-                    secondNumber = 3;
+                    firstNumber = 3;
                 }
                 break;
             case '/':
@@ -119,26 +107,26 @@ function clearCalculator() {
                 break;
             case '4':
                 result.textContent += 4;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 4;
+                if (typeof output !== 'number') {
+                    output = 4;
                 } else {
-                    secondNumber = 4;
+                    firstNumber = 4;
                 }
                 break;
             case '5':
                 result.textContent += 5;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 5;
+                if (typeof output !== 'number') {
+                    output = 5;
                 } else {
-                    secondNumber = 5;
+                    firstNumber = 5;
                 }
                 break;
             case '6':
                 result.textContent += 6;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 6;
+                if (typeof output !== 'number') {
+                    output = 6;
                 } else {
-                    secondNumber = 6;
+                    firstNumber = 6;
                 }
                 break;
             case 'x':
@@ -147,26 +135,26 @@ function clearCalculator() {
                 break;
             case '7':
                 result.textContent += 7;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 7;
+                if (typeof output !== 'number') {
+                    output = 7;
                 } else {
-                    secondNumber = 7;
+                    firstNumber = 7;
                 }
                 break;
             case '8':
                 result.textContent += 8;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 8;
+                if (typeof output !== 'number') {
+                    output = 8;
                 } else {
-                    secondNumber = 8;
+                    firstNumber = 8;
                 }
                 break;
             case '9':
                 result.textContent += 9;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 9;
+                if (typeof output !== 'number') {
+                    output = 9;
                 } else {
-                    secondNumber = 9;
+                    firstNumber = 9;
                 }
                 break;
             case '-':
@@ -175,10 +163,10 @@ function clearCalculator() {
                 break;
             case '0':
                 result.textContent += 0;
-                if (typeof firstNumber !== 'number') {
-                    firstNumber = 0;
+                if (typeof output !== 'number') {
+                    output = 0;
                 } else {
-                    secondNumber = 0;
+                    firstNumber = 0;
                 }
                 break;
             case '.':
@@ -191,10 +179,10 @@ function clearCalculator() {
                 break;
 
             case '=':
-                output = operate();
+                // output = operate();
                 result.textContent = output;
+                
                 firstNumber = null;
-                secondNumber = null;
                 break;
         }
         console.log(`First Number: ${firstNumber}`);
