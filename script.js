@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 // operation builder
 let firstNumber;
-let secondNumber;
 let operator = '';
 let output;
 
@@ -45,7 +44,6 @@ function operate() {
 
 function clearCalculator() {
      firstNumber = null;
-     secondNumber = null;
      operator = null;
      output = null;
      result.textContent = '';
@@ -62,6 +60,13 @@ function clearCalculator() {
             output = operate();
             firstNumber = null;
         }
+
+        if (operator == null) {
+            output += pressedKey.textContent;
+            output = parseInt(output);
+            console.log('addition happened');
+        }
+
 
         switch(pressedKey.textContent) {
 
@@ -179,14 +184,15 @@ function clearCalculator() {
                 break;
 
             case '=':
-                // output = operate();
                 result.textContent = output;
                 
                 firstNumber = null;
                 break;
         }
+
+        
+
         console.log(`First Number: ${firstNumber}`);
-        console.log(`Second Number: ${secondNumber}`);
         console.log(`Operator: ${operator}`);
         console.log(`Output: ${output}`);
     })
