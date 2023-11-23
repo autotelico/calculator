@@ -52,14 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (operator) {
             if (pressedKey.textContent === '+' ||
-            pressedKey.textContent === '-' ||
-            pressedKey.textContent === 'x' ||
-            pressedKey.textContent === '/' ||
-            pressedKey.textContent === '=') {   
+                pressedKey.textContent === '-' ||
+                pressedKey.textContent === 'x' ||
+                pressedKey.textContent === '/' ||
+                pressedKey.textContent === '=') {
                 firstNumber = firstNumber.slice(1);
                 output = parseInt(output);
                 firstNumber = parseInt(firstNumber);
-    
+
                 output = operate();
                 firstNumber = null;
                 operator = null
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pressedKey.textContent === '/') {
             operator = pressedKey.textContent;
         }
-        
+
 
         if (!operator) {
             if (pressedKey.textContent !== '+' ||
@@ -87,6 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 pressedKey.textContent !== 'x' ||
                 pressedKey.textContent !== '/') {
                 if (output) {
+                    console.log(`Output is ${output}`);
+                    if (typeof output !== 'number') {
+                        console.error('Error: output is ' + typeof firstNumber);
+                    }
                     output = output.concat(pressedKey.textContent);
                 } else {
                     output = pressedKey.textContent;
