@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 output = operate();
                 firstNumber = null;
                 operator = null
+                result.textContent = output;
                 return console.log('Result: ' + output);
             } else if (typeof parseInt(firstNumber) === 'number') {
                 firstNumber = firstNumber.toString();
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     output = pressedKey.textContent;
                 }
+                result.textContent += pressedKey.textContent;
             }
         } else {
 
