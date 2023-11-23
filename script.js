@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const numpad = document.querySelector('#numpad');
+    const result = document.querySelector('#result');
+
     // operation builder
     let firstNumber = 0;
     let operator = '';
@@ -29,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (operator === '-') {
             return subtract(output, firstNumber);
         }
-        if (operator === '*') {
+        if (operator === 'x') {
             return multiply(output, firstNumber);
         }
         if (operator === '/') {
@@ -44,10 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
         result.textContent = '';
     }
 
-    // Event listeners
-    const numpad = document.querySelector('#numpad');
-    const result = document.querySelector('#result');
-
     numpad.addEventListener('click', (e) => { // for display only
         let pressedKey = e.target;
 
@@ -55,12 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
             if (pressedKey.textContent === '+' ||
             pressedKey.textContent === '-' ||
             pressedKey.textContent === 'x' ||
-            pressedKey.textContent === '/') {   
-                
+            pressedKey.textContent === '/' ||
+            pressedKey.textContent === '=') {   
+                firstNumber = firstNumber.slice(1);
                 output = parseInt(output);
                 firstNumber = parseInt(firstNumber);
     
-                return console.log(operate());
+                output = operate();
+                firstNumber = null;
+                operator = null
+                return console.log('Result: ' + output);
+            } else if (typeof parseInt(firstNumber) === 'number') {
+                firstNumber = firstNumber.toString();
+                firstNumber = firstNumber.concat(pressedKey.textContent);
+            } else {
+                console.log('error');
             }
         }
 
@@ -70,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
             pressedKey.textContent === '/') {
             operator = pressedKey.textContent;
         }
+        
 
         if (!operator) {
             if (pressedKey.textContent !== '+' ||
@@ -101,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             }
-
+            result.textContent += pressedKey.textContent;
         }
 
 

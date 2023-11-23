@@ -94,4 +94,9 @@ h1 {
   font-family: Verdana;
 }
 
+#numpad #equals {
+  cursor: pointer;
+  background: rgb(0, 174, 255);
+}
+
 /*# sourceMappingURL=style.css.map */
