@@ -1,104 +1,97 @@
+.container {
+  background: lightblue;
+  border: 3px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 40vw;
+  padding: 30px;
+  margin-top: 50px;
+}
+
 body {
-    background-color: rgb(235, 230, 230);
+  background-color: rgb(235, 230, 230);
 }
 
 h1 {
-    text-align: center;
-    font-size: 4em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -70%);
+  text-align: center;
+  font-size: 4em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -70%);
 }
 
-.container {
-    background: lightblue;
-
-    border: 3px solid black;
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 80vh;
-    width: 40vw;
-    padding: 30px;
-    margin-top: 50px;
+#result-display {
+  background: gray;
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 95%;
+  height: 20%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-.container #result-display {
-    background: gray;
-
-    border: 3px solid black;
-    border-radius: 10px;
-    width: 95%;
-    height: 20%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+#result-display #result {
+  font-size: 5em;
+  font-family: Verdana;
+  overflow: hidden;
 }
 
-.container #result-display #result {
-    font-size: 5em;
-    font-family: Verdana;
-    overflow: hidden;
+#numpad {
+  background: rgba(201, 200, 201, 0.952);
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 90%;
+  height: 70%;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+  padding: 20px;
 }
 
-.container #numpad {
-    background: rgba(201, 200, 201, 0.952);
-    border: 3px solid black;
-    border-radius: 10px;
-    width: 90%;
-    height: 70%;
-    margin: 10px auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat( 5, 1fr);
-    gap: 10px;
-    padding: 20px;
+#numpad .special-key {
+  cursor: pointer;
+  border: 3px solid black;
+  border-radius: 10px;
+  background: rgba(4, 209, 209, 0.555);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  font-family: Verdana;
 }
 
-.container .special-key {
-    cursor: pointer;
-    border: 3px solid black;
-    border-radius: 10px;
-    background: rgba(4, 209, 209, 0.555);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4em;
-    font-family: Verdana;
+#numpad .key {
+  cursor: pointer;
+  border: 3px solid black;
+  border-radius: 10px;
+  background: peachpuff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  font-family: Verdana;
 }
 
-.container .key {
-    cursor: pointer;
-    border: 3px solid black;
-    border-radius: 10px;
-    background: peachpuff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4em;
-    font-family: Verdana;
-
+#numpad .operation {
+  cursor: pointer;
+  border: 3px solid black;
+  border-radius: 10px;
+  background: olivedrab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  font-family: Verdana;
 }
 
-.container .operation {
-    cursor: pointer;
-    border: 3px solid black;
-    border-radius: 10px;
-    background: olivedrab;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4em;
-    font-family: Verdana;
-
-}
-
-.container #equals {
-    cursor: pointer;
-    background: rgb(0, 174, 255);
-}
+/*# sourceMappingURL=style.css.map */

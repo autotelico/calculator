@@ -1,28 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-// operation builder
-let firstNumber = 0;
-let operator = '';
-let output = 0;
+    // operation builder
+    let firstNumber = 0;
+    let operator = '';
+    let output = 0;
 
-// math functions
-function add(a, b) {
-    return a + b;
-}
+    // math functions
+    function add(a, b) {
+        return a + b;
+    }
 
-function subtract(a, b) {
-    return a - b;
-}
+    function subtract(a, b) {
+        return a - b;
+    }
 
-function multiply(a, b) {
-    return a * b;
-}
+    function multiply(a, b) {
+        return a * b;
+    }
 
-function divide(a, b) {
-    return a / b;
-}
+    function divide(a, b) {
+        return a / b;
+    }
 
 
-function operate() {
+    function operate() {
         if (operator === '+') {
             return add(output, firstNumber);
         }
@@ -35,53 +35,85 @@ function operate() {
         if (operator === '/') {
             return divide(output, firstNumber);
         }
-}
+    }
 
-function clearCalculator() {
-     firstNumber = null;
-     operator = null;
-     output = null;
-     result.textContent = '';
-}     
+    function clearCalculator() {
+        firstNumber = null;
+        operator = null;
+        output = null;
+        result.textContent = '';
+    }
 
-// Event listeners
+    // Event listeners
     const numpad = document.querySelector('#numpad');
     const result = document.querySelector('#result');
 
     numpad.addEventListener('click', (e) => { // for display only
         let pressedKey = e.target;
 
+        if (operator) {
+            if (pressedKey.textContent === '+' ||
+            pressedKey.textContent === '-' ||
+            pressedKey.textContent === 'x' ||
+            pressedKey.textContent === '/') {   
+                
+                output = parseInt(output);
+                firstNumber = parseInt(firstNumber);
+    
+                return console.log(operate());
+            }
+        }
+
         if (pressedKey.textContent === '+' ||
-        pressedKey.textContent === '-' ||
-        pressedKey.textContent === '*' ||
-        pressedKey.textContent === '/') {
+            pressedKey.textContent === '-' ||
+            pressedKey.textContent === 'x' ||
+            pressedKey.textContent === '/') {
             operator = pressedKey.textContent;
         }
 
         if (!operator) {
             if (pressedKey.textContent !== '+' ||
-            pressedKey.textContent !== '-' ||
-            pressedKey.textContent !== '*' ||
-            pressedKey.textContent !== '/') {
+                pressedKey.textContent !== '-' ||
+                pressedKey.textContent !== 'x' ||
+                pressedKey.textContent !== '/') {
                 if (output) {
                     output = output.concat(pressedKey.textContent);
-                    console.log('concatenated');
                 } else {
                     output = pressedKey.textContent;
                 }
             }
+        } else {
+
+            if (!firstNumber) {
+                if (pressedKey.textContent !== '+' ||
+                    pressedKey.textContent !== '-' ||
+                    pressedKey.textContent !== 'x' ||
+                    pressedKey.textContent !== '/') {
+                    firstNumber = pressedKey.textContent;
+                }
+            } else {
+                if (pressedKey.textContent !== '+' ||
+                    pressedKey.textContent !== '-' ||
+                    pressedKey.textContent !== 'x' ||
+                    pressedKey.textContent !== '/') {
+                    if (typeof firstNumber === 'number') {
+                        firstNumber = firstNumber.concat(pressedKey.textContent);
+                    }
+                }
+            }
+
         }
 
 
+        if (pressedKey.textContent === 'AC') {
+            clearCalculator();
+        }
 
         // if (typeof output === 'number' && typeof firstNumber === 'number') {
         //     output = operate();
         //     firstNumber = null;
         // }
 
-        if (pressedKey.textContent === 'AC') {
-            clearCalculator();
-        }
 
         // switch(pressedKey.textContent) {
 
@@ -192,7 +224,7 @@ function clearCalculator() {
         //     case '.':
         //         result.textContent += '.';
         //         break;
-        
+
         //     case '+':
         //         result.textContent += '+';
         //         operator = '+';
@@ -200,12 +232,12 @@ function clearCalculator() {
 
         //     case '=':
         //         result.textContent = output;
-                
+
         //         firstNumber = null;
         //         break;
         // }
 
-        
+
 
         console.log(`First Number: ${firstNumber}`);
         console.log(`Operator: ${operator}`);
