@@ -50,6 +50,19 @@ document.addEventListener("DOMContentLoaded", () => {
     numpad.addEventListener('click', (e) => { // for display only
         let pressedKey = e.target;
 
+        if (operator && output && firstNumber) {
+            console.log('All fields are true');
+            if (pressedKey.textContent === '+' ||
+            pressedKey.textContent === '-' ||
+            pressedKey.textContent === 'x' ||
+            pressedKey.textContent === '/' ||
+            pressedKey.textContent === '=') {
+                output = operate();
+                return operator = '';
+            }
+
+        }
+
         if (operator) {
             if (pressedKey.textContent === '+' ||
                 pressedKey.textContent === '-' ||
@@ -87,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pressedKey.textContent !== 'x' ||
                 pressedKey.textContent !== '/') {
                 if (output) {
-                    console.log(`Output is ${output}`);
+                    console.log(`firstNumber is ${firstNumber}`);
                     if (typeof output !== 'number') {
                         console.error('Error: output is ' + typeof firstNumber);
                     }
