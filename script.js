@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         result.textContent = '';
     }
 
+
     numpad.addEventListener('click', (e) => { // for display only
         let pressedKey = e.target;
 
