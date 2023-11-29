@@ -68,6 +68,8 @@ h1 {
   align-items: center;
   font-size: 4em;
   font-family: Verdana;
+  height: 100%;
+  width: 100%;
 }
 
 #numpad .key {
@@ -80,6 +82,8 @@ h1 {
   align-items: center;
   font-size: 4em;
   font-family: Verdana;
+  height: 100%;
+  width: 100%;
 }
 
 #numpad .operation {
@@ -97,4 +101,12 @@ h1 {
 #numpad #equals {
   cursor: pointer;
   background: rgb(0, 174, 255);
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 500px;
+    height: 800px;
+    top: 55%;
+  }
 }/*# sourceMappingURL=style.css.map */
