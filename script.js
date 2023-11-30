@@ -74,9 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-       
-
-
         if (operator) {
             if (otherNumber.charAt(0) === 'n' ||
             otherNumber.charAt(0) === '+' ||
@@ -88,8 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 otherNumber += pressedKey.textContent;
             }
         }
-        
-
         
         if (pressedKey.textContent === 'AC') {
             clearCalculator();
