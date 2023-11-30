@@ -8,6 +8,8 @@
   transform: translate(-50%, -50%);
   height: 80vh;
   width: 40vw;
+  min-height: 400px;
+  min-width: 400px;
   padding: 30px;
   margin-top: 50px;
 }
@@ -103,10 +105,17 @@ h1 {
   background: rgb(0, 174, 255);
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 350px) {
   .container {
-    width: 500px;
-    height: 800px;
+    width: 80vw;
+    height: 600px;
     top: 55%;
+  }
+  #numpad {
+    background-color: red;
+  }
+  .key, .special-key, .operation {
+    min-height: 95%;
+    min-width: 95%;
   }
 }/*# sourceMappingURL=style.css.map */
