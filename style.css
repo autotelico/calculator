@@ -107,12 +107,9 @@ h1 {
 
 @media only screen and (max-width: 350px) {
   .container {
-    width: 80vw;
+    width: 250px;
     height: 600px;
     top: 55%;
-  }
-  #numpad {
-    background-color: red;
   }
   .key, .special-key, .operation {
     min-height: 95%;
