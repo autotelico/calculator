@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const result = document.querySelector('#result');
 
     // operation builder
-    let firstNumber = 'n';
+    let otherNumber = 'n';
     let operator = '';
     let output = null;
 
@@ -27,21 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function operate() {
         if (operator === '+') {
-            return add(output, firstNumber);
+            return add(output, otherNumber);
         }
         if (operator === '-') {
-            return subtract(output, firstNumber);
+            return subtract(output, otherNumber);
         }
         if (operator === 'x') {
-            return multiply(output, firstNumber);
+            return multiply(output, otherNumber);
         }
         if (operator === '/') {
-            return divide(output, firstNumber);
+            return divide(output, otherNumber);
         }
     }
 
     function clearCalculator() {
-        firstNumber = 'n';
+        otherNumber = 'n';
         operator = '';
         output = 0;
         result.textContent = '';
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (pressedKey.textContent === '=') {
             output = operate();
             result.textContent = output;
-            firstNumber = 'n';
+            otherNumber = 'n';
             operator = '';
         }
 
@@ -78,14 +78,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         if (operator) {
-            if (firstNumber.charAt(0) === 'n' ||
-            firstNumber.charAt(0) === '+' ||
-            firstNumber.charAt(0) === '-' ||
-            firstNumber.charAt(0) === 'x' ||
-            firstNumber.charAt(0) === '/') {
-                firstNumber = pressedKey.textContent;
+            if (otherNumber.charAt(0) === 'n' ||
+            otherNumber.charAt(0) === '+' ||
+            otherNumber.charAt(0) === '-' ||
+            otherNumber.charAt(0) === 'x' ||
+            otherNumber.charAt(0) === '/') {
+                otherNumber = pressedKey.textContent;
             } else {
-                firstNumber += pressedKey.textContent;
+                otherNumber += pressedKey.textContent;
             }
         }
         
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
             result.textContent += pressedKey.textContent;
         }
 
-        console.log(`First Number: ${firstNumber}`);
+        console.log(`First Number: ${otherNumber}`);
         console.log(`Operator: ${operator}`);
         console.log(`Output: ${output}`);
     })
