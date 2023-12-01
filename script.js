@@ -49,21 +49,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     numpad.addEventListener('click', (e) => { // for display only
-        let pressedKey = e.target;
+        let pressedKey = e.target.textContent;
 
         if (pressedKey === numpad) {
           return e.preventDefault();
         }
 
-        if (pressedKey.textContent === '+' ||
-            pressedKey.textContent === '-' ||
-            pressedKey.textContent === 'x' ||
-            pressedKey.textContent === '/') {
+        if (pressedKey === '+' ||
+            pressedKey === '-' ||
+            pressedKey === 'x' ||
+            pressedKey === '/') {
             
-                operator = pressedKey.textContent;
+                operator = pressedKey;
         }
 
-        if (pressedKey.textContent === '=') {
+        if (pressedKey === '=') {
             output = operate();
             result.textContent = output;
             otherNumber = 'n';
@@ -72,9 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!operator) {
             if (output === null) {
-                output = pressedKey.textContent;
-            } else if (pressedKey.textContent !== '=') {
-                    output = output + pressedKey.textContent;
+                output = pressedKey;
+            } else if (pressedKey !== '=') {
+                    output = output + pressedKey;
                 }
             }
 
@@ -84,17 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
             otherNumber.charAt(0) === '-' ||
             otherNumber.charAt(0) === 'x' ||
             otherNumber.charAt(0) === '/') {
-                otherNumber = pressedKey.textContent;
+                otherNumber = pressedKey;
             } else {
-                otherNumber += pressedKey.textContent;
+                otherNumber += pressedKey;
             }
         }
         
-        if (pressedKey.textContent === 'AC') {
+        if (pressedKey === 'AC') {
             clearCalculator();
         }
-        if (pressedKey.textContent !== '=' && pressedKey.textContent !== 'AC') {
-            result.textContent += pressedKey.textContent;
+        if (pressedKey !== '=' && pressedKey !== 'AC') {
+            result.textContent += pressedKey;
         }
 
         console.log(`First Number: ${otherNumber}`);
