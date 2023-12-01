@@ -55,13 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
           return e.preventDefault();
         }
 
-        if (pressedKey === '+' ||
-            pressedKey === '-' ||
-            pressedKey === 'x' ||
-            pressedKey === '/') {
-            
+        switch(pressedKey) {
+            case '+':
+            case '-':
+            case 'x':
+            case '/':
                 operator = pressedKey;
+                break;
         }
+
+        
 
         if (pressedKey === '=') {
             output = operate();
