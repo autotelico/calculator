@@ -62,24 +62,29 @@ document.addEventListener("DOMContentLoaded", () => {
             case '/':
                 operator = pressedKey;
                 break;
-        }
+            
+            case '=':
+                output = operate();
+                result.textContent = output;
+                otherNumber = 'n';
+                operator = '';
+                break;
+
+            case 'AC':
+                clearCalculator();
+                break;
+        
+            default:
+                if (!operator) {
+                    if (output === null) {
+                        output = pressedKey;
+                    } else if (pressedKey !== '=') {
+                            output = output + pressedKey;
+                        }
+                    }
+            }
 
         
-
-        if (pressedKey === '=') {
-            output = operate();
-            result.textContent = output;
-            otherNumber = 'n';
-            operator = '';
-        }
-
-        if (!operator) {
-            if (output === null) {
-                output = pressedKey;
-            } else if (pressedKey !== '=') {
-                    output = output + pressedKey;
-                }
-            }
 
         if (operator) {
             if (otherNumber.charAt(0) === 'n' ||
@@ -91,10 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 otherNumber += pressedKey;
             }
-        }
-        
-        if (pressedKey === 'AC') {
-            clearCalculator();
         }
         if (pressedKey !== '=' && pressedKey !== 'AC') {
             result.textContent += pressedKey;
