@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     numpad.addEventListener('click', (e) => { // for display only
         let pressedKey = e.target.textContent;
 
-        if (pressedKey === numpad) {
+        if (e.target === numpad) {
           return e.preventDefault();
         }
 
