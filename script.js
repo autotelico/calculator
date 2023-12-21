@@ -1,3 +1,7 @@
+import { add, subtract, multiply, divide } from "./mathOperations.mjs";
+
+console.log(add(1, 2));
+
 document.addEventListener("DOMContentLoaded", () => {
     const numpad = document.querySelector('#numpad');
     const result = document.querySelector('#result');
@@ -10,22 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let hasCalculated = false;
 
     // math functions
-    function add(a, b) {
-        return parseFloat(a) + parseFloat(b);
-    }
-
-    function subtract(a, b) {
-        return a - b;
-    }
-
-    function multiply(a, b) {
-        return a * b;
-    }
-
-    function divide(a, b) {
-        return a / b;
-    }
-
+    
 
     function operate() {
         if (operator === '+') {
@@ -87,10 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     output = operate();
                     result.textContent = output;
                     otherNumber = 0;
-
-                    // if (operator && hasCalculated) {
-
-                    // }
                     break;
                 case 'AC':
                     clearCalculator();

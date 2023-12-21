@@ -1,0 +1,157 @@
+%container-builder {
+    background: lightblue;
+    border: 3px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    width: 40vw;
+    min-height: 400px;
+    min-width: 400px;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+%body {
+    background-color: rgb(235, 230, 230);
+}
+
+%h1 {
+    text-align: center;
+    font-size: 4em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+%result-display {
+    background: gray;
+
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 95%;
+    height: 20%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+%final-result {
+    font-size: 5em;
+    font-family: Verdana;
+    overflow: hidden;
+}
+
+%numpad {
+    background: rgba(201, 200, 201, 0.952);
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 90%;
+    height: 70%;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat( 5, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+%special-key{
+    cursor: pointer;
+    border: 3px solid black;
+    border-radius: 10px;
+    background: rgba(4, 209, 209, 0.555);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    font-family: Verdana;
+    height: 100%;
+    width: 100%;
+}
+
+%key{
+    cursor: pointer;
+    border: 3px solid black;
+    border-radius: 10px;
+    background: peachpuff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    font-family: Verdana;
+    height: 100%;
+    width: 100%;
+
+}
+
+%operation-button {
+    cursor: pointer;
+    border: 3px solid black;
+    border-radius: 10px;
+    background: olivedrab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    font-family: Verdana;
+
+}
+
+%equals-button {
+    cursor: pointer;
+    background: rgb(0, 174, 255);
+}
+
+.container {
+    @extend %container-builder;
+}
+
+body {
+    @extend %body;
+}
+
+h1 {
+    @extend %h1;
+}
+
+#result-display {
+    @extend %result-display;
+    #result {
+        @extend %final-result;
+    }
+}
+
+#numpad {
+    @extend %numpad;
+    .special-key {
+        @extend %special-key;
+    }
+    .key {
+        @extend %key;
+    }
+    .operation {
+        @extend %operation-button;
+    }
+    #equals {
+        @extend %equals-button;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .container {
+        width: 40vw;
+        height: 70vh;
+        top: 55%;
+    }
+
+    .key, .special-key, .operation {
+        min-height: 95%;
+        min-width: 95%;
+    }
+}
