@@ -1,2 +1,2 @@
 # calculator
-A pure JavaScript-based calculator.
+A purely JavaScript-based calculator.
